@@ -34,3 +34,17 @@ function operate(num1, op, num2) {
       }
 }
 
+let displayValue = 0;
+
+function updateDisplay(val) {
+    const display = document.querySelector('#display');
+    display.innerText = val;
+    displayValue = val;
+}
+
+const numbers = Array.from(document.querySelectorAll('.operand'));
+numbers.map((btn) => {
+    btn.addEventListener('click', () => {
+        updateDisplay(btn.innerText)
+    })
+});
