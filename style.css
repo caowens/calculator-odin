@@ -26,3 +26,50 @@ html {
     font-weight: initial;
     margin: 5px;
 }
+
+#buttonsGrid {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+    justify-content: space-between;
+    align-items:stretch;
+    flex-wrap: wrap;
+    align-self: center;
+}
+
+.buttonsRow {
+    display: flex;
+    flex: 1;
+}
+
+button {
+    margin: 1px;
+    border-radius: 5%;
+    border: none;
+    font-weight: initial;
+    font-size: 2em;
+    font-family: monospace;
+    color: black;
+    flex: 1;
+}
+
+#zero {
+    flex: 2;
+}
+
+.operand, 
+#decimal {
+    background-color: aqua;
+}
+
+.operator,
+#equals {
+    background-color: greenyellow;
+}
+
+#clear,
+#sign,
+#percent {
+    background-color:orange;
+}
