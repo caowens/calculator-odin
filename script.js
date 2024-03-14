@@ -71,7 +71,6 @@ numbers.map((btn) => {
 const operators = Array.from(document.querySelectorAll('.operator'));
 operators.map((btn) => {
     btn.addEventListener('click', () => {
-        operator = btn.innerText;
         if (numberA === null) {
             numberA = display.val;
             operator = btn.innerText;
@@ -83,11 +82,14 @@ operators.map((btn) => {
             operate(numberA, operator, numberB);
             numberB = null;
             display.val = '';
+            display.inputStack.pop();
         }
         else {
             operate(numberA, operator, numberB);
             numberB = null;
         }
+        operator = btn.innerText;
+        display.inputStack.push(operator);
     });
 });
 
