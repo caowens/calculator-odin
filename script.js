@@ -3,20 +3,33 @@ let operator = null;
 let numberB = null;
 
 const add = function(a, b) {
-	return a + b;
+	return roundToTwoDecimalPlaces(a + b);
 };
 
 const subtract = function(a, b) {
-	return a - b;
+	return roundToTwoDecimalPlaces(a - b);
 };
 
 const multiply = function(a, b) {
-  return a * b;
+  return roundToTwoDecimalPlaces(a * b);
 };
 
 const divide = function(a, b) {
-  return a / b;
+  return roundToTwoDecimalPlaces(a / b);
 };
+
+function roundToTwoDecimalPlaces(number) {
+    // Check if the number has a fractional part (i.e., it is a decimal)
+    if (Number.isInteger(number)) {
+        // If it's an integer, return it as is
+        console.log(number);
+        return number;
+    } else {
+        // If it's a decimal, round it to two decimal places
+        console.log(parseFloat(number.toFixed(2)))
+        return parseFloat(number.toFixed(2));
+    }
+}
 
 function Display() {
     this.val = '';
