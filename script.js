@@ -32,6 +32,9 @@ function Display() {
         this.val = '';
         this.display.innerText = '0';
     }
+    this.infinity = function() {
+        this.display.innerText = 'Nice try';
+    }
 }
 
 let display = new Display();
@@ -78,6 +81,10 @@ operators.map((btn) => {
             display.val = '';
         }
         else if (numberB === null) {
+            if (display.val == 0 && operator === '/') {
+                display.clearDisplay();
+                display.updateDisplay("Nice Try");
+            }
             numberB = display.val;
             operate(numberA, operator, numberB);
             numberB = null;
@@ -96,12 +103,17 @@ operators.map((btn) => {
 const equals = document.querySelector('#equals');
 equals.addEventListener('click', () => {
     if (numberA && !numberB && operator) {
-        numberB = display.val;
-        console.log(`${numberA} ${operator} ${numberB}`);
-        operate(numberA, operator, numberB);
-        numberB = null;
-        operator = null;
-        display.inputStack = [];
+        if (display.val == 0 && operator === '/') {
+            display.clearDisplay();
+            display.infinity();
+        } 
+        else {
+            numberB = display.val;
+            operate(numberA, operator, numberB);
+            numberB = null;
+            operator = null;
+            display.inputStack = [];
+        }
     }
 });
 
